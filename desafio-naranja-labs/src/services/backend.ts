@@ -20,3 +20,7 @@ const {jobs} = context;
 export const getJobs = (): Job[] => {
   return jobs;
 }
+
+export const getJobsByLevel = (level: string): Job[] => {
+  return jobs.filter((job: Job) => job.level === level)
+}

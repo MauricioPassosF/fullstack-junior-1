@@ -1,6 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
 
-
 export default function secretMiddleware(req: NextApiRequest, res: NextApiResponse, next: Function) {
   const secret = req.headers.secret;
   if (secret !== 'naranja-labs'){
