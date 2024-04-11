@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { getJobs } from '@/services/backend';
+import secretMiddleware from '@/services/middleware';
 
 type Jobs = {
   id: number,
@@ -16,6 +17,8 @@ export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<Jobs[]>
 ) {
-  const jobs = getJobs();
-  res.status(200).json(jobs)
+  secretMiddleware(req, res, () => {
+    const jobs = getJobs();
+    res.status(200).json(jobs)
+  });
 }

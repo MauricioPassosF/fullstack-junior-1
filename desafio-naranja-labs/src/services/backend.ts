@@ -18,6 +18,5 @@ script.runInContext(context);
 const {jobs} = context;
 
 export const getJobs = (): Job[] => {
-  console.log(jobs);
   return jobs;
 }
