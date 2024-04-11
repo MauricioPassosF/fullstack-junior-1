@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { getJobs, getJobsByLevel } from '@/services/backend';
+import { getJobById } from '@/services/backend';
 import secretMiddleware from '@/services/middleware';
 
 type Job = {
@@ -15,16 +15,15 @@ type ResponseData = {
  
 export default function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Job[]>
+  res: NextApiResponse<Job | ResponseData>
 ) {
   secretMiddleware(req, res, () => {
-    const level = req.query.level
-    let jobs: Job[] = []
-    if (level && typeof level === 'string') {
-      jobs = getJobsByLevel(level)
+    const id = Number(req.query.id)
+    if (id && typeof id === 'number') {
+      const data: Job | ResponseData = getJobById(id);
+      res.status(200).json(data)
     } else {
-      jobs = getJobs();
+      res.status(200).json({message: 'Invalid id'})
     }
-    res.status(200).json(jobs)
   });
 }

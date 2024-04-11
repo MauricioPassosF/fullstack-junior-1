@@ -9,7 +9,11 @@ type Job = {
   status: string
 }
 
-const jobsPath = path.resolve(__dirname, '../../../../../jobs.ts');
+type ResponseData = {
+  message: string
+}
+
+const jobsPath = path.join(process.cwd(), '../jobs.ts');
 const jobsCode = fs.readFileSync(jobsPath, 'utf-8');
 const script = new vm.Script(`${jobsCode.replace(/const|;/g, '')}`);
 const context = vm.createContext();
@@ -23,4 +27,12 @@ export const getJobs = (): Job[] => {
 
 export const getJobsByLevel = (level: string): Job[] => {
   return jobs.filter((job: Job) => job.level === level)
+}
+
+export const getJobById = (id: number): Job | ResponseData  => {  
+  const job = jobs.find((job: Job) => job.id === id)
+  if (!job) {
+    return {message: 'Id not found'}
+  }
+  return job
 }
