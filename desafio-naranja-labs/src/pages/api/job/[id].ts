@@ -1,17 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { getJobById } from '@/services/backend';
 import secretMiddleware from '@/services/middleware';
-
-type Job = {
-  id: number,
-  job: string,
-  level: string,
-  status: string
-}
-
-type ResponseData = {
-  message: string
-}
+import { Job, ResponseData } from '@/types';
  
 export default function handler(
   req: NextApiRequest,
@@ -23,7 +13,7 @@ export default function handler(
       const data: Job | ResponseData = getJobById(id);
       res.status(200).json(data)
     } else {
-      res.status(200).json({message: 'Invalid id'})
+      res.status(400).json({message: 'Invalid id'})
     }
   });
 }

@@ -1,17 +1,7 @@
+import { Job, ResponseData } from '@/types';
 import fs from 'fs';
 import path from 'path';
 import vm from 'vm';
-
-type Job = {
-  id: number,
-  job: string,
-  level: string,
-  status: string
-}
-
-type ResponseData = {
-  message: string
-}
 
 const jobsPath = path.join(process.cwd(), '../jobs.ts');
 const jobsCode = fs.readFileSync(jobsPath, 'utf-8');
