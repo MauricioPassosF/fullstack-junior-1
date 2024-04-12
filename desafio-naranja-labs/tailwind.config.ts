@@ -11,6 +11,7 @@ const config: Config = {
       fontFamily: {
         'oswald': ['Oswald', 'sans-serif'],
         'poppins': ['Poppins', 'sans-serif'],
+        'bebas-neue': ['Bebas Neue', 'sans-serif'],
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

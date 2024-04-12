@@ -1,10 +1,11 @@
 import NavBar from "@/components/navbar";
-import Image from "next/image";
+import Title from "@/components/title";
 
 export default function Home() {
   return (
-    <main className="flex">
+    <main className="flex flex-col w-[1920px] mx-auto">
       <NavBar />
+      <Title />
     </main>
   );
 }

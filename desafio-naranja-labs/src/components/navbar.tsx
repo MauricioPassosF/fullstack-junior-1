@@ -1,7 +1,5 @@
-import Image from 'next/image';
-
 const menuItens = ['Destination', 'Package', 'Blog', 'About Us','Contact']
-const navClass = 'w-[1920px] h-[120px] flex flex-row justify-between items-center mx-auto'
+const navClass = 'h-[120px] flex flex-row justify-between items-center'
 const spanClass = 'font-oswald text-[36px] leading-[53.35px] font-semibold'
 const menuItemClass = 'font-poppins bg-none text-[rgba(46,46,46,1)] size-[18px] font-normal leading-[27px] w-[fit-content] h-[fit-content]'
 const signInClass = 'w-[fit-content] h-12 bg-[rgba(247,122,64,1)] text-[rgba(255,255,255,1)] size-[18px] font-normal leading-[27px] font-poppins px-[30px] py[11.5px] rounded-lg'
