@@ -3,7 +3,7 @@ const subtitleClass = ` w-[648px] font-normal text-[24px] leading-[40px] font-po
 
 export default function Title() {
   return (
-    <section id="title-section" className="flex flex-col w-[920px] mt-20 gap-[16px]">
+    <section id="title-section" className="flex flex-col w-[920px] mt-20 gap-[16px] ml-40">
       <div id="title">
         <div>
           <h1 className={`${titleClass} text-[rgba(46,46,46,1)]`}>{"LET'S GO!"}</h1>
